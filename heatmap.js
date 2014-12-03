@@ -15,17 +15,17 @@ var vector = new ol.layer.Heatmap({
   blur: 35,
   */
   /*
-  // Hyvät arvot havainnoille
+  // Hyvät arvot skaalaamattomille havainnoille, joissa havainnon painoarvo on aina 1
   radius: 7,
   blur: 40,
   */
-  // Hyvät arvot skaalatuille havainnoille
+  // Hyvät arvot skaalatuille havainnoille, joissa havainnon painoarvo vaihtelee välillä 0...1
   radius: 10,
   blur: 20,
 });
 
 vector.getSource().on('addfeature', function(event) {
-  // Extract weight from name tag. Allowed values are between 0...1.
+  // Extract weight from name tag. Values should be between 0...1. Everything above 1 downgraded to 1.
   var name = event.feature.get('name');
   var count = parseFloat(name);
   event.feature.set('weight', count);
