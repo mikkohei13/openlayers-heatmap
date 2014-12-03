@@ -1,0 +1,199 @@
+[
+  {
+    "op": "core/column-split",
+    "description": "Split column Y-koord by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Y-koord",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": ".",
+    "regex": false,
+    "maxColumns": 2
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Y-koord 2",
+    "columnName": "Y-koord 2"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Y-koord 1 to N ETRS-TM35FIN",
+    "oldColumnName": "Y-koord 1",
+    "newColumnName": "N ETRS-TM35FIN"
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column X-koord by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "X-koord",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": ".",
+    "regex": false,
+    "maxColumns": 2
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column X-koord 2",
+    "columnName": "X-koord 2"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column X-koord 1 to E ETRS-TM35FIN",
+    "oldColumnName": "X-koord 1",
+    "newColumnName": "E ETRS-TM35FIN"
+  },
+  {
+    "op": "core/column-move",
+    "description": "Move column N ETRS-TM35FIN to position 8",
+    "columnName": "N ETRS-TM35FIN",
+    "index": 8
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column Count at index 11 based on column Tarkkuus using expression grel:cells['M‰‰r‰'].value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "Count",
+    "columnInsertIndex": 11,
+    "baseColumnName": "Tarkkuus",
+    "expression": "grel:cells['M‰‰r‰'].value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-move",
+    "description": "Move column Count to position 10",
+    "columnName": "Count",
+    "index": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column #Muunnos at index 8 based on column Paikka using expression grel:cells['Count'].value + \",\" + cells['N ETRS-TM35FIN'].value + \",\" + cells['E ETRS-TM35FIN'].value + \",euref\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "#Muunnos",
+    "columnInsertIndex": 8,
+    "baseColumnName": "Paikka",
+    "expression": "grel:cells['Count'].value + \",\" + cells['N ETRS-TM35FIN'].value + \",\" + cells['E ETRS-TM35FIN'].value + \",euref\"",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column #Muunnos to #Muunnos havainnoitsija",
+    "oldColumnName": "#Muunnos",
+    "newColumnName": "#Muunnos havainnoitsija"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column N ETRS-TM35FIN to N ETRS-TM35FIN havainnoitsija",
+    "oldColumnName": "N ETRS-TM35FIN",
+    "newColumnName": "N ETRS-TM35FIN havainnoitsija"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column E ETRS-TM35FIN to E ETRS-TM35FIN havainnoitsija",
+    "oldColumnName": "E ETRS-TM35FIN",
+    "newColumnName": "E ETRS-TM35FIN havainnoitsija"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column N ETRS-TM35FIN havainnoitsija to N havainnoitsija",
+    "oldColumnName": "N ETRS-TM35FIN havainnoitsija",
+    "newColumnName": "N havainnoitsija"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column E ETRS-TM35FIN havainnoitsija to E havainnoitsija",
+    "oldColumnName": "E ETRS-TM35FIN havainnoitsija",
+    "newColumnName": "E havainnoitsija"
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column X-koord-linnun by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "X-koord-linnun",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": ".",
+    "regex": false,
+    "maxColumns": 2
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column X-koord-linnun 1 to E lintu",
+    "oldColumnName": "X-koord-linnun 1",
+    "newColumnName": "E lintu"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column X-koord-linnun 2",
+    "columnName": "X-koord-linnun 2"
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column Y-koord-linnun by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Y-koord-linnun",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": ".",
+    "regex": false,
+    "maxColumns": 2
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Y-koord-linnun 1 to N lintu",
+    "oldColumnName": "Y-koord-linnun 1",
+    "newColumnName": "N lintu"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Y-koord-linnun 2",
+    "columnName": "Y-koord-linnun 2"
+  },
+  {
+    "op": "core/column-move",
+    "description": "Move column N lintu to position 13",
+    "columnName": "N lintu",
+    "index": 13
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column #Muunnos lintu at index 14 based on column N lintu using expression grel:cells['Count'].value + \",\" + cells['N lintu'].value + \",\" + cells['E lintu'].value + \",euref\"",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "#Muunnos lintu",
+    "columnInsertIndex": 14,
+    "baseColumnName": "N lintu",
+    "expression": "grel:cells['Count'].value + \",\" + cells['N lintu'].value + \",\" + cells['E lintu'].value + \",euref\"",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-move",
+    "description": "Move column #Muunnos lintu to position 13",
+    "columnName": "#Muunnos lintu",
+    "index": 13
+  }
+]
