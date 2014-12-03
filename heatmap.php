@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/javascript; charset=utf-8');
 $sDirty = $_GET['s'];
-if (file_exists("data/" . $sDirty . ".txt"))
+if (preg_match("([A-Za-z0-9\-\_]+)", $sDirty) !== 0 && file_exists("data/" . $sDirty . ".txt"))
 {
   $s = $sDirty;
 }

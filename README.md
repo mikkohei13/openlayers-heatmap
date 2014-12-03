@@ -9,6 +9,4 @@ Esim.
 
 ## TODO
 
-* tietoturva: datatiedoston nimessä ei muuta kuin kirjaimia, numeroita, tavuviivoja ja alaviivoja
-* lukumäärien huomioonotto
 * kartan otsikko

@@ -4,7 +4,7 @@ if (! isset($_GET['s']))
   exit("Virheellinen osoite (parametri 's' puuttuu).");
 }
 $sDirty = $_GET['s'];
-if (file_exists("data/" . $sDirty . ".txt"))
+if (preg_match("([A-Za-z0-9\-\_]+)", $sDirty) !== 0 && file_exists("data/" . $sDirty . ".txt"))
 {
   $s = $sDirty;
 }
@@ -12,6 +12,8 @@ else
 {
   exit("Virheellinen osoite.");
 }
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -29,7 +31,13 @@ else
   <div id="map" class="map"><div id="info"></div></div>
 
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="heatmap.php?s=<?php echo $s; ?>"></script>
+  <script src="heatmap.php?s=<?php
+echo $s;
+if (isset($_GET['scale']))
+{
+  echo "&scale";
+}
+?>"></script>
 
   </body>
 </html>

@@ -14,15 +14,32 @@ var vector = new ol.layer.Heatmap({
   radius: 5,
   blur: 35,
   */
-  /*
-  // Hyvät arvot skaalaamattomille havainnoille, joissa havainnon painoarvo on aina 1
-  radius: 7,
-  blur: 40,
-  */
-  // Hyvät arvot skaalatuille havainnoille, joissa havainnon painoarvo vaihtelee välillä 0...1
+<?php
+// Use different styles for scaled data
+if (isset($_GET['scale']))
+// Hyvät arvot skaalatuille havainnoille, joissa havainnon painoarvo vaihtelee välillä 0...1
+{
+?>
   radius: 10,
   blur: 20,
+<?php
+}
+else
+// Hyvät arvot skaalaamattomille havainnoille, joissa havainnon painoarvo on aina 1
+{
+?>
+  radius: 7,
+  blur: 40,
+<?php
+}
+?>
 });
+
+<?php
+// Use scale data only if specified with scale-parameter
+if (isset($_GET['scale']))
+{
+?>
 
 vector.getSource().on('addfeature', function(event) {
   // Extract weight from name tag. Values should be between 0...1. Everything above 1 downgraded to 1.
@@ -30,6 +47,10 @@ vector.getSource().on('addfeature', function(event) {
   var count = parseFloat(name);
   event.feature.set('weight', count);
 });
+
+<?php
+}
+?>
 
 // Raster map
 var raster = new ol.layer.Tile({
