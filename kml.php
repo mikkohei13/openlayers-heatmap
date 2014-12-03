@@ -21,9 +21,10 @@ $rowsArray = explode("\n", $fileString);
 $largest = 0;
 foreach ($rowsArray as $rowNumber => $rowString)
 {
-  // if contains #, skip as comment line
+  // if contains #, delete and skip
   if (strpos($rowString, "#") !== FALSE)
   {
+    unset($rowsArray[$rowNumber]);
     continue;
   }
 
@@ -51,12 +52,6 @@ foreach ($rowsArray as $rowNumber => $rowString)
 $i = 0;
 foreach ($rowsArray as $rowNumber => $rowString)
 {
-  // if contains #, skip as comment line
-  if (strpos($rowString, "#") !== FALSE)
-  {
-    continue;
-  }
-
   $rowString = trim($rowString);
 
   $row = explode("\t", $rowString);
