@@ -1,0 +1,19 @@
+body
+{
+	margin: 0;
+	padding: 0;
+}
+.map
+{
+	/* height: 600px; */ /* This cannot be set as % */
+	width: 100%;
+
+}
+.map canvas
+{
+
+}
+.info
+{
+
+}
