@@ -1,4 +1,8 @@
 <?php
+if (! isset($_GET['s']))
+{
+  exit("Virheellinen osoite (parametri 's' puuttuu).");
+}
 $sDirty = $_GET['s'];
 if (file_exists("data/" . $sDirty . ".txt"))
 {
