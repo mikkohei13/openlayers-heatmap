@@ -29,7 +29,7 @@ else
 {
 ?>
   radius: 7,
-  blur: 40,
+  blur: 35,
 <?php
 }
 ?>

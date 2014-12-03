@@ -9,4 +9,8 @@ Esim.
 
 ## TODO
 
-* kartan otsikko
+* Should: Kartan otsikko ja sivun title
+* Should: Sini-punainen väriskaala
+* Nice: Automaattinen keskitys ja zoomaus data-alueelle (ks. satelliittilinnut)
+* Nice: Skaalauksen ja datalähteen vaihto Javascriptillä
+* Maybe: blur/radius-arvojen säätäminen selainkohtaisesti? Nyt Chrome blurraa vähemmän kuin Firefox ja IE.
