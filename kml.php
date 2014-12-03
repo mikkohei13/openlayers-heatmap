@@ -43,12 +43,14 @@ foreach ($rowsArray as $rowNumber => $rowString)
   $row = explode("\t", $rowString);
   $coordinates = "<coordinates>" . $row[2] . "," . $row[1] . "</coordinates>\n";
 
-  echo "<Placemark id=\"$i\">
-          <name>$i</name>
+  echo "
+        <Placemark id=\"$i\">
+          <name>" . $row[0] . "</name>
           <Point>
               $coordinates
           </Point>
-        </Placemark>";
+        </Placemark>
+        ";
 
   $i++;
 }
