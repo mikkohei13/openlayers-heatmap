@@ -37,6 +37,10 @@ if (isset($_GET['scale']))
 {
   echo "&scale";
 }
+elseif (isset($_GET['dot']))
+{
+  echo "&dot";
+}
 ?>"></script>
 
   </body>

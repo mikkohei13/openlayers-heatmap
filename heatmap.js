@@ -9,29 +9,32 @@ var vector = new ol.layer.Heatmap({
     projection: 'EPSG:3857',
     url: 'kml.php?s=<?php echo $s; ?>'
   }),
-  /*
-  // Hyvät arvot laskentareiteille
-  radius: 5,
-  blur: 35,
-  */
 <?php
-// Use different styles for scaled data
-if (isset($_GET['scale']))
-// Hyvät arvot skaalatuille havainnoille, joissa havainnon painoarvo vaihtelee välillä 0...1
-{
-?>
-  radius: 10,
-  blur: 20,
-<?php
-}
-else
-// Hyvät arvot skaalaamattomille havainnoille, joissa havainnon painoarvo on aina 1
-{
-?>
-  radius: 7,
-  blur: 35,
-<?php
-}
+  // Use different styles for unscaled and scaled data
+  if (isset($_GET['scale']))
+  // Hyvät arvot skaalatuille havainnoille, joissa havainnon painoarvo vaihtelee välillä 0...1
+  {
+    echo "
+      radius: 10,
+      blur: 20,
+    ";
+  }
+  elseif (isset($_GET['dot']))
+  // Pistekartta
+  {
+    echo "
+      radius: 5,
+      blur: 0,
+    ";
+  }
+  else
+  // Hyvät arvot skaalaamattomille havainnoille, joissa havainnon painoarvo on aina 1
+  {
+    echo "
+      radius: 7,
+      blur: 35,
+    ";
+  }
 ?>
 });
 

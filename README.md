@@ -9,6 +9,7 @@ Esim.
 
 ## TODO
 
+* Should: Satelliittikuvapohja
 * Should: Kartan otsikko ja sivun title
 * Should: Sini-punainen väriskaala
 * Nice: Automaattinen keskitys ja zoomaus data-alueelle (ks. satelliittilinnut)
