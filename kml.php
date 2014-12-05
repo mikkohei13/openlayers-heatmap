@@ -1,6 +1,6 @@
 <?php
-header('Content-type: application/vnd.google-earth.kml+xml');
-//header('Content-type: text/plain'); // debug
+//header('Content-type: application/vnd.google-earth.kml+xml');
+header('Content-type: text/plain'); // debug
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
 
 $sDirty = $_GET['s'];
@@ -30,11 +30,13 @@ foreach ($rowsArray as $rowNumber => $rowString)
 
   $rowString = trim($rowString);
   $row = explode("\t", $rowString);
-  if ($row[0] > $largest)
+  if (is_numeric($row[0]) && $row[0] > $largest)
   {
     $largest = $row[0];
   }
 }
+
+//echo "largest: $largest";
 
 ?>
 <kml xmlns="http://earth.google.com/kml/2.0" xmlns:atom="http://www.w3.org/2005/Atom">
