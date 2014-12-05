@@ -50,6 +50,7 @@ Tiirassa koordinaatit ovat ETRS-TM35FIN (eli EUREF) -muodossa desimaalilukuina, 
 * Should: Kartan otsikko ja sivun title
 * Should: Sini-punainen väriskaala
 * Should: jätä huomioimatta mahdolliset tyhjät rivit
+* Nice: Cap-arvo yksilömäärälle (jonka ylittävät skaalataan yhteen), GET-parametrina?
 * Nice: Alueen raja (vektoritaso)
 * Nice: Automaattinen keskitys ja zoomaus data-alueelle (ks. satelliittilinnut)
 * Nice: Skaalauksen ja datalähteen vaihto Javascriptillä
