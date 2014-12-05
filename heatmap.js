@@ -15,8 +15,8 @@ var vector = new ol.layer.Heatmap({
   // Hyvät arvot skaalatuille havainnoille, joissa havainnon painoarvo vaihtelee välillä 0...1
   {
     echo "
-      radius: 10,
-      blur: 20,
+      radius: 7,
+      blur: 35,
     ";
   }
   elseif (isset($_GET['dot']))

@@ -22,7 +22,11 @@ Tiirassa koordinaatit ovat ETRS-TM35FIN (eli EUREF) -muodossa desimaalilukuina, 
 
 ### Muunna data näin:
 
-- Vie Tiirasta saatu data Open Refineen
+- Vie Tiirasta saatu data Open Refineen Excel-muodossa (tekstimuodossa importointi voi kadottaa osan havainnoista)
+	- Korvaa datatiedostosta tabulaattorit välilyönnillä
+	- Korvaa #-merkit tabulaattorilla
+	- Copy-paste data Exceliin, tallenna .xls-muodossa
+	- Importoi data Open Refineen
 - Aja conversion-kansiossa oleva muunnos Prepare_coordinates_and_count.json. Tämä muuntaa koordinaatit ja yksilömäärän helposti jatkokäsiteltävään muotoon.
 - Suodata tai poista rivit, joita et halua mukaan (epätarkat koordinaatit, päivämäärän perusteella, muuttavat vs. paikalliset...).
 	- Jos haluat ottaa mukaan vain tiettyjen kuukausien (esim. kesä- ja heinäkuun) datan, aja muunnos Split_pvm1.json. Tämä pilkkoo alkupäivämäärän osiinsa, mikä helpottaa suodatusta.
@@ -40,10 +44,13 @@ Tiirassa koordinaatit ovat ETRS-TM35FIN (eli EUREF) -muodossa desimaalilukuina, 
 
 ## TODO
 
+* Should: Otsikko
+* Should: Havaintojen määrä
 * Should: Satelliittikuvapohja
 * Should: Kartan otsikko ja sivun title
 * Should: Sini-punainen väriskaala
 * Should: jätä huomioimatta mahdolliset tyhjät rivit
+* Nice: Alueen raja (vektoritaso)
 * Nice: Automaattinen keskitys ja zoomaus data-alueelle (ks. satelliittilinnut)
 * Nice: Skaalauksen ja datalähteen vaihto Javascriptillä
 * Maybe: blur/radius-arvojen säätäminen selainkohtaisesti? Nyt Chrome blurraa vähemmän kuin Firefox ja IE.

@@ -1,25 +1,38 @@
 [
   {
     "op": "core/column-addition",
-    "description": "Create column Pvm1 parts at index 3 based on column Pvm1 using expression grel:value",
+    "description": "Create column Pvm1 temp at index 3 based on column Pvm1 using expression grel:value",
     "engineConfig": {
       "mode": "row-based",
       "facets": []
     },
-    "newColumnName": "Pvm1 parts",
+    "newColumnName": "Pvm1 temp",
     "columnInsertIndex": 3,
     "baseColumnName": "Pvm1",
     "expression": "grel:value",
     "onError": "set-to-blank"
   },
   {
-    "op": "core/column-split",
-    "description": "Split column Pvm1 parts by separator",
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Pvm1 temp using expression value.toString()",
     "engineConfig": {
       "mode": "row-based",
       "facets": []
     },
-    "columnName": "Pvm1 parts",
+    "columnName": "Pvm1 temp",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column Pvm1 temp by separator",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Pvm1 temp",
     "guessCellType": true,
     "removeOriginalColumn": true,
     "mode": "separator",
@@ -29,20 +42,20 @@
   },
   {
     "op": "core/column-rename",
-    "description": "Rename column Pvm1 parts 1 to Pvm1 päivä",
-    "oldColumnName": "Pvm1 parts 1",
+    "description": "Rename column Pvm1 temp 1 to Pvm1 päivä",
+    "oldColumnName": "Pvm1 temp 1",
     "newColumnName": "Pvm1 päivä"
   },
   {
     "op": "core/column-rename",
-    "description": "Rename column Pvm1 parts 2 to Pvm1 kk",
-    "oldColumnName": "Pvm1 parts 2",
+    "description": "Rename column Pvm1 temp 2 to Pvm1 kk",
+    "oldColumnName": "Pvm1 temp 2",
     "newColumnName": "Pvm1 kk"
   },
   {
     "op": "core/column-rename",
-    "description": "Rename column Pvm1 parts 3 to Pvm1 v",
-    "oldColumnName": "Pvm1 parts 3",
+    "description": "Rename column Pvm1 temp 3 to Pvm1 v",
+    "oldColumnName": "Pvm1 temp 3",
     "newColumnName": "Pvm1 v"
   }
 ]
