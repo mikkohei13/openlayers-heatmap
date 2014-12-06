@@ -14,9 +14,16 @@ var vector = new ol.layer.Heatmap({
   if (isset($_GET['scale']))
   // Hyvät arvot skaalatuille havainnoille, joissa havainnon painoarvo vaihtelee välillä 0...1
   {
+    /*
     echo "
       radius: 10,
       blur: 20,
+    ";
+    */
+    // Tämäkin voisi toimia, mutta vain skaalatuilla: näyttää selkeämmin yksittäisen havainnon yksilämäärän
+    echo "
+      radius: 10,
+      blur: 0,
     ";
   }
   elseif (isset($_GET['dot']))
