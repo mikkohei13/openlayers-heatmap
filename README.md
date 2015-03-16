@@ -46,7 +46,7 @@ Tiirassa koordinaatit ovat ETRS-TM35FIN (eli EUREF) -muodossa desimaalilukuina, 
 
 * Should: Otsikko
 * Should: Havaintojen määrä
-* Should: Satelliittikuvapohja
+* Should: Satelliittikuvapohja: http://openlayers.org/en/v3.0.0/examples/bing-maps.html
 * Should: Kartan otsikko ja sivun title
 * Should: Sini-punainen väriskaala
 * Should: jätä huomioimatta mahdolliset tyhjät rivit
