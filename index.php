@@ -1,10 +1,15 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
+
+
+$dataDir = "data";
+
 if (! isset($_GET['s']))
 {
   exit("Virheellinen osoite (parametri 's' puuttuu).");
 }
 $sDirty = $_GET['s'];
-if (preg_match("([A-Za-z0-9\-\_]+)", $sDirty) !== 0 && file_exists("data/" . $sDirty . ".txt"))
+if (preg_match("([A-Za-z0-9\-\_]+)", $sDirty) !== 0 && file_exists($dataDir . "/" . $sDirty . ".txt"))
 {
   $s = $sDirty;
 }
@@ -30,18 +35,10 @@ else
 
   <div id="map" class="map"><div id="info"></div></div>
 
+  <script src="http://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="heatmap.php?s=<?php
-echo $s;
-if (isset($_GET['scale']))
-{
-  echo "&scale";
-}
-elseif (isset($_GET['dot']))
-{
-  echo "&dot";
-}
-?>"></script>
+
+  <?php require_once "heatmap.php"; ?>
 
   </body>
 </html>
